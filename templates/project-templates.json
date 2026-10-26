@@ -1,0 +1,70 @@
+{
+  "product": "JT Cloud",
+  "category": "Project and file workspace",
+  "schemaVersion": 1,
+  "templates": [
+    {
+      "id": "creative-project",
+      "name": "Creative Project",
+      "folders": [
+        "01-Brief",
+        "02-Assets",
+        "03-Working-Files",
+        "04-Exports",
+        "05-Archive"
+      ],
+      "tags": [
+        "creative",
+        "assets",
+        "deliverables"
+      ],
+      "checklist": [
+        "Save project brief",
+        "Keep source assets separate from exports",
+        "Create a backup before major changes"
+      ]
+    },
+    {
+      "id": "software-project",
+      "name": "Software Project",
+      "folders": [
+        "docs",
+        "src",
+        "tests",
+        "assets",
+        "releases"
+      ],
+      "tags": [
+        "software",
+        "source",
+        "tests"
+      ],
+      "checklist": [
+        "Record repository URL",
+        "Document build steps",
+        "Keep secrets out of project files"
+      ]
+    },
+    {
+      "id": "video-project",
+      "name": "Video Production",
+      "folders": [
+        "01-Preproduction",
+        "02-Footage",
+        "03-Audio",
+        "04-Project-Files",
+        "05-Exports"
+      ],
+      "tags": [
+        "video",
+        "production",
+        "media"
+      ],
+      "checklist": [
+        "Back up original footage",
+        "Track missing media",
+        "Store final exports separately"
+      ]
+    }
+  ]
+}
