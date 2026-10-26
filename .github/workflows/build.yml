@@ -42,8 +42,21 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Install dependencies
-        run: npm install --no-audit --no-fund
+      - name: Install dependencies (retry transient registry/network failures)
+        shell: bash
+        run: |
+          set -euo pipefail
+          for attempt in 1 2 3; do
+            if npm install --no-audit --no-fund --fetch-retries=5 --fetch-timeout=120000; then
+              exit 0
+            fi
+            if [ "$attempt" -lt 3 ]; then
+              echo "Dependency installation failed on attempt $attempt; retrying in 15 seconds..."
+              sleep 15
+            fi
+          done
+          echo "Dependency installation failed after 3 attempts."
+          exit 1
       - name: Check source syntax
         run: npm run check
       - name: Package desktop app
