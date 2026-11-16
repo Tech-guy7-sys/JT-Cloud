@@ -17,7 +17,7 @@ function render(){
  const filterValue=state.projects.some(p=>p.id===old)?old:"";
  $("#filter").value=filterValue;
  if(filterValue)selectedProjectId=filterValue;
- if(!state.projects.some(p=>p.id===selectedProjectId))selectedProjectId=state.projects[0]?.id||"";
+ if(selectedProjectId&&!state.projects.some(p=>p.id===selectedProjectId))selectedProjectId="";
  $("#projectCount").textContent=state.projects.length;
  $("#fileCount").textContent=state.projects.reduce((n,p)=>n+p.files.length,0);
  $("#sidebarProjectCount").textContent=state.projects.length;
